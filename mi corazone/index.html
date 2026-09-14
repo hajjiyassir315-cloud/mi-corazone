@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Ti, Mi Amor ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#09000b;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,50,120,.20),transparent 30%),
+        radial-gradient(circle at 80% 70%,rgba(180,30,120,.18),transparent 30%),
+        linear-gradient(135deg,#12000d,#050006);
+    z-index:-2;
+}
+
+#hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:50;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff4f91;
+    font-size:20px;
+    animation:floatHeart linear forwards;
+    opacity:.7;
+    filter:drop-shadow(0 0 10px #ff2d75);
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg) scale(1.4);
+        opacity:0;
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:900px;
+    animation:heroIn 1.8s ease;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.small{
+    letter-spacing:5px;
+    text-transform:uppercase;
+    font-size:13px;
+    color:#ff9fc2;
+}
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(65px,10vw,125px);
+    margin:15px 0;
+    background:linear-gradient(90deg,#fff,#ff6f9f,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:titleGlow 3s infinite alternate;
+}
+
+@keyframes titleGlow{
+    from{
+        filter:drop-shadow(0 0 5px rgba(255,50,120,.2));
+    }
+    to{
+        filter:drop-shadow(0 0 25px rgba(255,50,120,.8));
+    }
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    color:#ffdce8;
+    max-width:700px;
+    margin:auto;
+}
+
+.scroll{
+    margin-top:50px;
+    color:#ff94b8;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(10px);
+    }
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    min-height:100vh;
+    padding:100px 7%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-family:'Dancing Script',cursive;
+    font-size:70px;
+    color:#ff83ac;
+}
+
+.section-title p{
+    color:#ffc7d9;
+    margin-top:10px;
+}
+
+/* =========================
+   APOLOGY
+========================= */
+
+.letter{
+    max-width:850px;
+    padding:55px;
+    border:1px solid rgba(255,100,160,.25);
+    border-radius:35px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+    box-shadow:
+        0 0 80px rgba(255,0,100,.12),
+        inset 0 0 40px rgba(255,255,255,.02);
+    text-align:center;
+    line-height:2;
+}
+
+.letter .big-heart{
+    font-size:70px;
+    animation:beat 1.3s infinite;
+}
+
+@keyframes beat{
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+.letter h3{
+    font-family:'Dancing Script',cursive;
+    font-size:45px;
+    color:#ff91b8;
+    margin:15px;
+}
+
+.letter p{
+    color:#ffe4ed;
+    font-size:17px;
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memories{
+    width:100%;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.memory{
+    position:relative;
+    height:520px;
+    border-radius:30px;
+    overflow:hidden;
+    cursor:pointer;
+    transform:translateY(50px);
+    opacity:0;
+    transition:.8s ease;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.memory.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.memory img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s ease;
+}
+
+.memory:hover img{
+    transform:scale(1.12);
+}
+
+.memory::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 30%,
+        rgba(0,0,0,.85)
+    );
+}
+
+.memory-info{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:30px;
+    z-index:2;
+}
+
+.memory-number{
+    color:#ff8caf;
+    font-size:13px;
+    letter-spacing:4px;
+}
+
+.memory h3{
+    font-family:'Dancing Script',cursive;
+    font-size:38px;
+    margin:8px 0;
+}
+
+.memory p{
+    color:#ffdce7;
+    line-height:1.6;
+}
+
+/* =========================
+   QUESTION
+========================= */
+
+.question{
+    text-align:center;
+    max-width:900px;
+}
+
+.question h2{
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(55px,8vw,90px);
+    color:#ff8db4;
+}
+
+.question p{
+    margin:20px auto 50px;
+    max-width:650px;
+    color:#ffdce8;
+    line-height:1.8;
+}
+
+.buttons{
+    position:relative;
+    min-height:130px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+}
+
+.btn{
+    border:none;
+    padding:18px 45px;
+    border-radius:50px;
+    font-family:Poppins;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yes{
+    background:linear-gradient(135deg,#ff2d75,#ff75a6);
+    color:white;
+    box-shadow:0 0 30px rgba(255,45,117,.5);
+}
+
+.yes:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 60px rgba(255,45,117,.8);
+}
+
+.no{
+    background:#252027;
+    color:#ddd;
+    position:relative;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final{
+    display:none;
+    min-height:100vh;
+    text-align:center;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:
+        radial-gradient(circle at center,rgba(255,20,100,.35),transparent 45%),
+        #090009;
+}
+
+#final.active{
+    display:flex;
+    animation:finalIn 1s ease;
+}
+
+@keyframes finalIn{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.final-heart{
+    font-size:130px;
+    animation:beat 1s infinite;
+}
+
+.final h2{
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(60px,10vw,110px);
+    color:#ff82ae;
+}
+
+.final p{
+    max-width:700px;
+    line-height:2;
+    color:#ffe2ec;
+    font-size:18px;
+    margin:20px auto;
+}
+
+/* =========================
+   SPARKLES
+========================= */
+
+.sparkle{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkle 1s forwards;
+    z-index:200;
+}
+
+@keyframes sparkle{
+    from{
+        transform:scale(0);
+        opacity:1;
+    }
+    to{
+        transform:scale(5) translateY(-100px);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    section{
+        padding:80px 20px;
+    }
+
+    .memories{
+        grid-template-columns:1fr;
+    }
+
+    .memory{
+        height:450px;
+    }
+
+    .letter{
+        padding:30px 22px;
+    }
+
+    .buttons{
+        min-height:180px;
+    }
+
+    .no{
+        position:absolute;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="small">
+Para la persona que más amo ❤️
+</div>
+
+<h1>Lo siento, mi amor maryem.</h1>
+
+<p>
+Sé que estás enfadada conmigo...
+y sé que quizá estas palabras no puedan arreglarlo todo.
+Pero quiero que sepas algo:
+<strong>lo siento de verdad.</strong>
+</p>
+
+<div class="scroll">
+↓ Baja... preparé algo para ti ↓
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     APOLOGY
+========================= -->
+
+<section>
+
+<div class="section-title">
+<h2>Una pequeña confesión...</h2>
+<p>Quiero decirte algo desde el corazón.</p>
+</div>
+
+<div class="letter">
+
+<div class="big-heart">❤️</div>
+
+<h3>Perdóname, mi vida...</h3>
+
+<p>
+
+No quiero buscar excusas.
+No quiero decirte que "no fue para tanto".
+Porque si te hice daño, entonces sí fue importante.
+
+<br><br>
+
+Sé que puedo equivocarme.
+Sé que a veces puedo decir o hacer cosas que no debería.
+Pero hay una cosa que nunca quiero perder:
+
+<strong>tu sonrisa, tu confianza y a ti.</strong>
+
+<br><br>
+
+Te quiero muchísimo.
+Más de lo que muchas veces sé explicar con palabras.
+
+<br><br>
+
+Y si pudiera volver atrás,
+cambiaría ese momento solamente para evitar que tú terminaras triste.
+
+<br><br>
+
+Así que hoy no vengo a justificarme.
+
+<br>
+
+Vengo solamente a decir:
+
+<br><br>
+
+<strong style="font-size:25px;color:#ff8caf;">
+LO SIENTO. ❤️
+</strong>
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<h2>Nuestra historia ❤️</h2>
+
+<p>
+Porque antes de este pequeño problema,
+hay una historia preciosa que construimos juntos.
+</p>
+
+</div>
+
+<div class="memories">
+
+<!-- PHOTO 1 -->
+
+<div class="memory">
+
+<img src="images/foto1.jpg" alt="Nuestro comienzo">
+
+<div class="memory-info">
+
+<div class="memory-number">
+01 — EL COMIENZO
+</div>
+
+<h3>Cuando todo empezó</h3>
+
+<p>
+Antes de saber todo lo que nos esperaba,
+éramos simplemente dos personas
+que empezaron a formar una historia.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 2 -->
+
+<div class="memory">
+
+<img src="images/foto2.jpg" alt="Nuestra boda">
+
+<div class="memory-info">
+
+<div class="memory-number">
+02 — NUESTRO MOMENTO
+</div>
+
+<h3>El día que dijimos sí</h3>
+
+<p>
+Un momento que jamás quiero olvidar.
+Un día que convirtió nuestra historia
+en algo todavía más especial.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PHOTO 3 -->
+
+<div class="memory">
+
+<img src="images/foto3.jpg" alt="Nuestra vida">
+
+<div class="memory-info">
+
+<div class="memory-number">
+03 — NUESTRA VIDA
+</div>
+
+<h3>Y seguimos juntos</h3>
+
+<p>
+Porque nuestra historia no terminó ahí.
+Cada día escribimos una nueva página.
+Y yo quiero seguir escribiéndola contigo.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     QUESTION
+========================= -->
+
+<section>
+
+<div class="question">
+
+<div class="small">
+Y ahora tengo una última pregunta...
+</div>
+
+<h2>
+¿Aceptas mis disculpas? ❤️
+</h2>
+
+<p>
+No te prometo que nunca cometeré errores,
+porque soy humano.
+Pero sí te prometo que voy a aprender,
+escucharte más,
+cuidarte más
+y valorar cada momento contigo.
+</p>
+
+<div class="buttons">
+
+<button class="btn yes" id="yesBtn">
+SÍ ❤️
+</button>
+
+<button class="btn no" id="noBtn">
+NO 😭
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section id="final">
+
+<div>
+
+<div class="final-heart">
+❤️
+</div>
+
+<h2>
+¡Sabía que dirías que sí! 🥹
+</h2>
+
+<p>
+
+Gracias por perdonarme, mi amor.
+
+<br><br>
+
+No quiero que una discusión sea más grande
+que todo lo bonito que hemos construido juntos.
+
+<br><br>
+
+Te quiero.
+Hoy.
+Mañana.
+Y en todas las páginas que todavía nos quedan por escribir.
+
+<br><br>
+
+<strong>
+Tú + Yo = Siempre. ❤️
+</strong>
+
+</p>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+const hearts = document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols = ["❤️","💗","💖","💕","💘","💞"];
+
+    heart.innerText =
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+    heart.style.left =
+        Math.random()*100 + "%";
+
+    heart.style.fontSize =
+        (12 + Math.random()*25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random()*7) + "s";
+
+    hearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },12000);
+}
+
+setInterval(createHeart,350);
+
+
+/* =========================
+   MEMORY REVEAL
+========================= */
+
+const memories =
+document.querySelectorAll(".memory");
+
+const observer =
+new IntersectionObserver(entries=>{
+
+    entries.forEach((entry,index)=>{
+
+        if(entry.isIntersecting){
+
+            setTimeout(()=>{
+
+                entry.target.classList.add("show");
+
+            },index*250);
+
+        }
+
+    });
+
+},{threshold:.2});
+
+memories.forEach(memory=>{
+    observer.observe(memory);
+});
+
+
+/* =========================
+   RUNNING NO BUTTON
+========================= */
+
+const noBtn =
+document.getElementById("noBtn");
+
+const yesBtn =
+document.getElementById("yesBtn");
+
+let attempts = 0;
+
+function moveNoButton(){
+
+    attempts++;
+
+    const messages = [
+        "¿Seguro? 😭",
+        "Piénsalo otra vez 🥺",
+        "No me hagas esto 😭",
+        "Por favorrr ❤️",
+        "Mira nuestras fotos 🥹",
+        "¡Casi! 😂",
+        "No puedes atraparme 😭",
+        "Te quiero demasiado ❤️"
+    ];
+
+    noBtn.innerText =
+        messages[Math.min(attempts-1,messages.length-1)];
+
+    const padding = 20;
+
+    const maxX =
+        window.innerWidth -
+        noBtn.offsetWidth -
+        padding;
+
+    const maxY =
+        window.innerHeight -
+        noBtn.offsetHeight -
+        padding;
+
+    const x =
+        Math.max(
+            padding,
+            Math.random()*maxX
+        );
+
+    const y =
+        Math.max(
+            padding,
+            Math.random()*maxY
+        );
+
+    noBtn.style.position="fixed";
+
+    noBtn.style.left=x+"px";
+
+    noBtn.style.top=y+"px";
+
+    noBtn.style.zIndex="999";
+
+    /* make YES bigger */
+
+    const scale =
+        Math.min(1.55,1 + attempts*.08);
+
+    yesBtn.style.transform =
+        `scale(${scale})`;
+
+    createSparkles(
+        x + noBtn.offsetWidth/2,
+        y + noBtn.offsetHeight/2
+    );
+}
+
+
+/* Desktop */
+
+noBtn.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
+
+
+/* Mobile */
+
+noBtn.addEventListener(
+    "touchstart",
+    function(e){
+
+        e.preventDefault();
+
+        moveNoButton();
+
+    }
+);
+
+
+/* If she somehow clicks it */
+
+noBtn.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+
+        moveNoButton();
+
+    }
+);
+
+
+/* =========================
+   YES
+========================= */
+
+yesBtn.addEventListener(
+    "click",
+    function(){
+
+        createMassiveCelebration();
+
+        setTimeout(()=>{
+
+            document
+            .getElementById("final")
+            .classList.add("active");
+
+        },800);
+
+    }
+);
+
+
+/* =========================
+   SPARKLES
+========================= */
+
+function createSparkles(x,y){
+
+    for(let i=0;i<8;i++){
+
+        const s =
+        document.createElement("div");
+
+        s.className="sparkle";
+
+        s.style.left =
+            x + (Math.random()*80-40) + "px";
+
+        s.style.top =
+            y + (Math.random()*80-40) + "px";
+
+        document.body.appendChild(s);
+
+        setTimeout(()=>{
+            s.remove();
+        },1000);
+
+    }
+
+}
+
+
+/* =========================
+   BIG CELEBRATION
+========================= */
+
+function createMassiveCelebration(){
+
+    for(let i=0;i<80;i++){
+
+        setTimeout(()=>{
+
+            const heart =
+            document.createElement("div");
+
+            heart.className="heart";
+
+            heart.innerText =
+                ["❤️","💖","💗","💕","💘","🥹"]
+                [Math.floor(Math.random()*6)];
+
+            heart.style.left =
+                Math.random()*100+"%";
+
+            heart.style.bottom =
+                "20%";
+
+            heart.style.fontSize =
+                (20+Math.random()*45)+"px";
+
+            heart.style.animationDuration =
+                (2+Math.random()*4)+"s";
+
+            hearts.appendChild(heart);
+
+            setTimeout(()=>{
+                heart.remove();
+            },6000);
+
+        },i*30);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
